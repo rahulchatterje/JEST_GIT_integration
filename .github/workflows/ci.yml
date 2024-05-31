@@ -13,11 +13,17 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v4
+
       - name: Install Nodejs
         uses: actions/setup-node@v4
         with: 
           node-version: latest
+
       - name: Install dependencies
         run: npm install
+
+      - name: Ensure Jest Permissions
+        run: chmod +x ./node_modules/.bin/jest
+
       - name: Test code
         run: npm test
