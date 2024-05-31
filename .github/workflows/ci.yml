@@ -11,20 +11,13 @@ jobs:
         node-version: [14, 16]
 
     steps:
-        - name: Get code
-          uses: actions/checkout@v4
-        - name: Install Nodejs
-          uses: actions/setup-node@v4
-          with: 
-            node-version: latest
-        - name: Install dependencies
-          run: npm install
-        - name: Test code
-          run: npm test
-          node-version: ${{ matrix.node-version }}
-
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Install Nodejs
+        uses: actions/setup-node@v4
+        with: 
+          node-version: latest
       - name: Install dependencies
         run: npm install
-
-      - name: Run tests
+      - name: Test code
         run: npm test
